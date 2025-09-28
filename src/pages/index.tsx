@@ -500,7 +500,7 @@ function App() {
 
           // If still no results, try line-by-line with better filtering
           if (locations.length === 0) {
-            const lines = textResult.split(/\r?\n/).map(line => line.trim());
+            const lines = textResult.split(/\r?\n/).map((line: string) => line.trim());
             const locationKeywords = ['street', 'avenue', 'road', 'boulevard', 'plaza', 'square', 'tower', 'building', 'mall', 'center', 'park', 'bridge'];
 
             locations = lines.filter((line: string) => {
