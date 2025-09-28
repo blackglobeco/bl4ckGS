@@ -1,0 +1,398 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 42, 42, 42;
+  --background-end-rgb: 50, 50, 50;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #2a2a2a;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#__next {
+  height: 100%;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="file"] {
+    font-size: 16px;
+  }
+  
+  /* Touch-friendly buttons */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent text selection on touch */
+  .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #666666;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
+
+/* Map container styling */
+#map {
+  background-color: #000000;
+}
+
+/* Google Maps Controls Dark Mode Styling */
+.gm-style .gm-style-cc {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.gm-style .gm-style-cc a {
+  color: #ffffff !important;
+}
+
+/* Map type controls (Map/Satellite) */
+.gm-style .gm-style-mtc {
+  background-color: #2a2a2a !important;
+  border: 1px solid #444444 !important;
+}
+
+.gm-style .gm-style-mtc button {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.gm-style .gm-style-mtc button:hover {
+  background-color: #333333 !important;
+}
+
+/* Zoom controls */
+.gm-style .gm-bundled-control {
+  background-color: #2a2a2a !important;
+  border: 1px solid #444444 !important;
+  border-radius: 4px !important;
+}
+
+.gm-style .gm-bundled-control button {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.gm-style .gm-bundled-control button:hover {
+  background-color: #333333 !important;
+}
+
+/* Street View control */
+.gm-style .gm-svpc {
+  background-color: #2a2a2a !important;
+  border: 1px solid #444444 !important;
+}
+
+.gm-style .gm-svpc:hover {
+  background-color: #333333 !important;
+}
+
+/* Fullscreen control */
+.gm-style .gm-fullscreen-control {
+  background-color: #2a2a2a !important;
+  border: 1px solid #444444 !important;
+}
+
+.gm-style .gm-fullscreen-control:hover {
+  background-color: #333333 !important;
+}
+
+/* Attribution and terms */
+.gm-style .gmnoprint {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+}
+
+.gm-style .gmnoprint a {
+  color: #ffffff !important;
+}
+
+/* InfoWindow (popup) styling - Compact version */
+.gm-style .gm-style-iw {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  border: 1px solid #444444 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.gm-style .gm-style-iw-d {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-c {
+  background-color: #1a1a1a !important;
+  border-radius: 6px !important;
+  border: 1px solid #444444 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 250px !important;
+}
+
+.gm-style .gm-style-iw-t {
+  background-color: #1a1a1a !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.gm-style .gm-style-iw-tc {
+  background-color: #1a1a1a !important;
+  border: 1px solid #444444 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Info window pointer/tail styling - Change to grey */
+.gm-style .gm-style-iw-t::after {
+  background-color: #444444 !important;
+  border-color: #444444 transparent transparent transparent !important;
+}
+
+.gm-style .gm-style-iw-tc::after {
+  background-color: #444444 !important;
+  border-color: #444444 transparent transparent transparent !important;
+}
+
+/* Target the pointer triangle specifically */
+.gm-style .gm-style-iw .gm-style-iw-tc::after,
+.gm-style .gm-style-iw .gm-style-iw-t::after {
+  background: #444444 !important;
+  border-top-color: #444444 !important;
+}
+
+/* Hide Google's default close button completely */
+.gm-style .gm-ui-hover-effect {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.gm-style .gm-style-iw-chr {
+  display: none !important;
+}
+
+/* Hide any default close button elements */
+.gm-style .gm-style-iw .gm-ui-hover-effect {
+  display: none !important;
+}
+
+/* Ensure our custom close button works */
+.gm-style .gm-style-iw button {
+  background-color: #444444 !important;
+  color: #cccccc !important;
+  border: 1px solid #666666 !important;
+  cursor: pointer !important;
+  z-index: 1000 !important;
+}
+
+/* Remove default InfoWindow padding and styling */
+.gm-style .gm-style-iw-chr {
+  display: none !important;
+}
+
+.gm-style .gm-style-iw .gm-style-iw-d {
+  padding: 0 !important;
+}
+
+/* Ensure no white background bleeding through */
+.gm-style div[style*="background-color: white"] {
+  background-color: #1a1a1a !important;
+}
+
+.gm-style div[style*="background-color: rgb(255, 255, 255)"] {
+  background-color: #1a1a1a !important;
+}
+
+/* General button styling for any remaining white controls */
+.gm-style button {
+  background-color: #2a2a2a !important;
+  color: #ffffff !important;
+  border: 1px solid #444444 !important;
+}
+
+.gm-style button:hover {
+  background-color: #333333 !important;
+}
+
+/* Mobile-specific Google Maps controls */
+@media (max-width: 768px) {
+  /* Map Type Controls (Map/Satellite) - Work with Google's positioning */
+  .gm-style .gm-style-mtc {
+    background: #2a2a2a !important;
+    border: 1px solid #444444 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+  }
+  
+  .gm-style .gm-style-mtc button {
+    background: #2a2a2a !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    min-height: 36px !important;
+  }
+  
+  .gm-style .gm-style-mtc button:hover {
+    background: #333333 !important;
+  }
+  
+  /* Street View Control - Ensure visibility */
+  .gm-style .gm-svpc {
+    background: #2a2a2a !important;
+    border: 1px solid #444444 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .gm-style .gm-svpc:hover {
+    background: #333333 !important;
+  }
+  
+  /* Street View icon styling */
+  .gm-style .gm-svpc img,
+  .gm-style .gm-svpc svg {
+    filter: invert(1) brightness(1.2) !important;
+    opacity: 0.9 !important;
+  }
+  
+  /* Zoom Controls */
+  .gm-style .gm-bundled-control {
+    background: #2a2a2a !important;
+    border: 1px solid #444444 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+  }
+  
+  .gm-style .gm-bundled-control button {
+    background: #2a2a2a !important;
+    color: #ffffff !important;
+    border: none !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .gm-style .gm-bundled-control button:hover {
+    background: #333333 !important;
+  }
+  
+  /* Fullscreen Control */
+  .gm-style .gm-fullscreen-control {
+    background: #2a2a2a !important;
+    border: 1px solid #444444 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  .gm-style .gm-fullscreen-control:hover {
+    background: #333333 !important;
+  }
+  
+  /* Ensure all control icons are visible */
+  .gm-style .gmnoprint img,
+  .gm-style .gmnoprint svg {
+    filter: invert(1) brightness(1.2) !important;
+    opacity: 0.9 !important;
+  }
+  
+  /* Remove unwanted white backgrounds globally but preserve functionality */
+  .gm-style div[style*="background-color: white"],
+  .gm-style div[style*="background-color: rgb(255, 255, 255)"] {
+    background-color: #2a2a2a !important;
+  }
+  
+  /* Mobile-optimized info window */
+  .gm-style .gm-style-iw {
+    max-width: 280px !important;
+    min-width: 250px !important;
+  }
+  
+  /* Mobile close button sizing */
+  .gm-style .gm-style-iw button {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background-color: #444444 !important;
+    border: 1px solid #666666 !important;
+    color: #cccccc !important;
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 1001 !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+  }
+}
+
+/* File upload hover effects */
+.file-upload-hover {
+  background-color: #1a1a1a;
+}
+
+/* Mobile overlay z-index management */
+@media (max-width: 768px) {
+  .mobile-overlay {
+    z-index: 1000;
+  }
+  
+  .mobile-controls-bottom {
+    z-index: 999;
+  }
+}
