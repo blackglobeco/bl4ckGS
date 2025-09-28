@@ -51,10 +51,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(500).json({ error: 'GEMINI_API_KEY environment variable is not set' });
       }
       
-      const genAI = new GoogleGenerativeAI(apikey); // only accepts string
-      const model = genAI.getGenerativeModel({
-        model: "gemini-2.0-flash",
+      const genAI = new GoogleGenerativeAI(apikey, {
         baseUrl: "https://generativelanguage.googleapis.com/v1beta/"
+      });
+      const model = genAI.getGenerativeModel({
+        model: "gemini-2.0-flash"
       });
 
       const prompt = `Analyze this image to determine the most precise location where it was taken. Look for:
