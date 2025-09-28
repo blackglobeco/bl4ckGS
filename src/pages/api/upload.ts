@@ -38,9 +38,7 @@ export async function getAIOutput(imageurl:string) {
       throw new Error('GEMINI_API_KEY environment variable is not set');
     }
     
-    const genAI = new GoogleGenerativeAI(apikey, {
-      baseUrl: "https://generativelanguage.googleapis.com/v1beta/"
-    });
+    const genAI = new GoogleGenerativeAI(apikey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = "List all countries, cities, districts, street addresses, postal codes, and landmarks this photo satisfies in a string array in square brackets. If it doesn't satisfy any, return an empty array.";
