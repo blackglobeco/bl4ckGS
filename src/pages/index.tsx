@@ -487,7 +487,7 @@ function App() {
                 locations = match[1]
                   .split(',')
                   .map((loc: string) => loc.trim().replace(/^["']|["']$/g, ''))
-                  .filter(loc => loc.length > 1 && !loc.toLowerCase().includes('unknown'));
+                  .filter((loc: string) => loc.length > 1 && !loc.toLowerCase().includes('unknown'));
               } else {
                 // Quoted strings
                 locations = match
@@ -503,14 +503,14 @@ function App() {
             const lines = textResult.split(/\r?\n/).map(line => line.trim());
             const locationKeywords = ['street', 'avenue', 'road', 'boulevard', 'plaza', 'square', 'tower', 'building', 'mall', 'center', 'park', 'bridge'];
 
-            locations = lines.filter(line => {
+            locations = lines.filter((line: string) => {
               const lowerLine = line.toLowerCase();
               return line.length > 5 &&
                      !lowerLine.includes('analysis') &&
                      !lowerLine.includes('cannot') &&
                      !lowerLine.includes('unknown') &&
                      !lowerLine.includes('insufficient') &&
-                     (locationKeywords.some(keyword => lowerLine.includes(keyword)) ||
+                     (locationKeywords.some((keyword: string) => lowerLine.includes(keyword)) ||
                       /\d/.test(line) || // Contains numbers (addresses)
                       /[A-Z][a-z]+ [A-Z][a-z]+/.test(line)); // Proper case locations
             }).slice(0, 3);
