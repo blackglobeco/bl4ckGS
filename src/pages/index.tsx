@@ -147,8 +147,13 @@ function App() {
 
         } catch (error) {
           console.error('Error creating map:', error);
-          console.error('Error details:', error.message, error.stack);
-          setError(`Failed to create map: ${error.message}`);
+          if (error instanceof Error) {
+            console.error('Error details:', error.message, error.stack);
+            setError(`Failed to create map: ${error.message}`);
+          } else {
+            console.error('Unknown error type:', error);
+            setError('Failed to create map: Unknown error');
+          }
         }
       } else {
         console.error('Map element with id "map" not found in DOM');
